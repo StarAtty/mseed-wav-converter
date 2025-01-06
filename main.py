@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from scipy.io.wavfile import write
 from obspy import read
 import sys
@@ -33,3 +35,5 @@ for trace in st:
 
 write(f"{sys.argv[1]}_{samplerate}hz.wav", samplerate, np.array(arr).astype(np.int16))
 print(f"Written {sys.argv[1]}_{samplerate}hz.wav")
+write(f"{sys.argv[1]}_{samplerate}hz-32bit.wav", samplerate, np.array(arr).astype(np.float32))
+print(f"Written {sys.argv[1]}_{samplerate}hz-32bit.wav")
